@@ -13,6 +13,9 @@
 let swapEnabled = await GM.getValue("swapFlag", false);
 
 const observeDOM = (fn, e = document.documentElement, config = { attributes: 1, childList: 1, subtree: 1 }) => {
+  /*
+  https://old.reddit.com/r/GreaseMonkey/comments/undlw2/need_to_monitor_changes_to_a_specific_element_on/i89bftz/
+  */
   const observer = new MutationObserver(fn);
   observer.observe(e, config);
   return () => observer.disconnect();
